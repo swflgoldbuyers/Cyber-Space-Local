@@ -200,6 +200,15 @@ function initForm() {
         await new Promise((resolve) => setTimeout(resolve, 450));
       }
       form.classList.add("is-success");
+      const title = form.querySelector("[data-success-title]");
+      const copy = form.querySelector("[data-success-copy]");
+      if (site.formEndpoint) {
+        if (title) title.textContent = "Preview request received.";
+        if (copy) copy.textContent = "Thanks — we’ll review your business details and follow up about your website preview.";
+      } else {
+        if (title) title.textContent = "Thanks — this form is ready to connect.";
+        if (copy) copy.textContent = "A submission service isn’t connected yet, so this wasn’t sent or stored. The form is in place for when that endpoint is added.";
+      }
     } catch {
       if (errorEl) {
         errorEl.hidden = false;
