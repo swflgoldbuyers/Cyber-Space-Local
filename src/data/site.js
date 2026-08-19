@@ -15,13 +15,9 @@ export const site = {
   url: "https://cyberspacelocal.com",
   region: "Southwest Florida",
 
-  /**
-   * Logo files live in /public.
-   * Replace public/logo.svg with the official lockup when it is added.
-   * If the official file is a full horizontal lockup, set showWordmark to false.
-   */
   logo: {
-    src: "./logo.svg",
+    src: "./logo-mark.jpg",
+    lockup: "./logo.jpg",
     showWordmark: true,
   },
 
@@ -51,8 +47,17 @@ export const site = {
   ],
 
   /**
-   * Set to a Formspree, Getform, Basin, or custom endpoint when ready.
-   * Leave empty to keep the polished frontend with a local success state.
+   * TODO: Connect the preview form to an external submission service.
+   *
+   * GitHub Pages is static — there is no server-side backend here.
+   * Set `formEndpoint` to a Formspree, Getform, Basin, Basin-compatible,
+   * or custom HTTPS endpoint when one exists.
+   *
+   * The form in index.html posts JSON with:
+   *   name, business, phone, email, website, type, city, help
+   *
+   * Leave empty until that service is ready. Do not store submissions
+   * in localStorage or anywhere else in the browser.
    */
   formEndpoint: "",
 };

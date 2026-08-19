@@ -187,6 +187,8 @@ function initForm() {
           email: data.email.trim(),
           website: (data.website || "").trim(),
           type: data.type.trim(),
+          city: data.city.trim(),
+          help: data.help,
         };
         const response = await fetch(site.formEndpoint, {
           method: "POST",
@@ -218,6 +220,8 @@ function validate(data) {
     issues.push({ name: "email", message: "Please add a valid email address." });
   }
   if (!data.type?.trim()) issues.push({ name: "type", message: "Please tell us what type of business you run." });
+  if (!data.city?.trim()) issues.push({ name: "city", message: "Please add a city or service area." });
+  if (!data.help) issues.push({ name: "help", message: "Please choose what you want help with." });
   if (data.website?.trim()) {
     try {
       const url = new URL(data.website.trim());

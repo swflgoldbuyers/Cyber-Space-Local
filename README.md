@@ -47,12 +47,13 @@ portfolio: [
 
 ## Logo
 
-Place the official logo at:
+Official brand files:
 
-- `public/logo.svg` (used in the header and footer)
-- `public/favicon.svg` (browser icon)
+- `public/logo.jpg` — full lockup (footer)
+- `public/logo-mark.jpg` — CS mark (navigation)
+- `public/apple-touch-icon.png` — home-screen icon
 
-If the official file is a full horizontal lockup, set `logo.showWordmark` to `false` in `src/data/site.js` so the HTML wordmark is hidden.
+Do not redraw these. Replace the files in `public/` if a higher-resolution original is provided.
 
 ## Preview form
 
