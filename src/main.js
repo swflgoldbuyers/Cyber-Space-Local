@@ -1,5 +1,6 @@
 import "./styles/main.css";
 import "./styles/v4.css";
+import "./styles/polish.css";
 import { site } from "./data/site.js";
 
 document.body.classList.add("js-ready");
@@ -8,7 +9,12 @@ applySiteConfig();
 initHeader();
 initMobileNav();
 initSectionObserver();
-initReveals();
+try {
+  initReveals();
+} catch {
+  document.body.classList.remove("reveals-on");
+  document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+}
 initForm();
 initHashOffset();
 
@@ -47,10 +53,12 @@ function applySiteConfig() {
       link.rel = "noopener noreferrer";
       link.removeAttribute("aria-disabled");
       link.removeAttribute("tabindex");
+      link.removeAttribute("aria-label");
       if (note) note.hidden = true;
     } else {
       link.href = "#work";
       link.setAttribute("aria-disabled", "true");
+      link.setAttribute("aria-label", "View concept — live preview coming soon");
       link.tabIndex = -1;
       link.addEventListener("click", (event) => event.preventDefault());
     }
@@ -124,25 +132,61 @@ function initSectionObserver() {
 }
 
 function initReveals() {
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const items = document.querySelectorAll(".reveal");
-  if (reduce) {
-    items.forEach((el) => el.classList.add("is-visible"));
+  const items = [...document.querySelectorAll(".reveal")];
+  const show = (el) => el.classList.add("is-visible");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const revealAll = () => items.forEach(show);
+
+  if (!items.length || reduceMotion.matches || typeof IntersectionObserver === "undefined") {
+    revealAll();
     return;
   }
+
+  const isInView = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.bottom > -120 && rect.top < (window.innerHeight || 800) + 120;
+  };
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
+        if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
+        show(entry.target);
         obs.unobserve(entry.target);
       });
     },
-    { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
+    { threshold: [0, 0.04, 0.12], rootMargin: "24% 0px 24% 0px" }
   );
 
-  items.forEach((el) => observer.observe(el));
+  items.forEach((el) => {
+    if (isInView(el)) {
+      show(el);
+      return;
+    }
+    observer.observe(el);
+  });
+
+  document.body.classList.add("reveals-on");
+
+  const catchup = () => {
+    items.forEach((el) => {
+      if (!el.classList.contains("is-visible") && isInView(el)) {
+        show(el);
+        observer.unobserve(el);
+      }
+    });
+  };
+
+  window.addEventListener("load", catchup, { once: true });
+  window.addEventListener("scroll", catchup, { passive: true });
+  window.setTimeout(revealAll, 1600);
+  reduceMotion.addEventListener("change", (event) => {
+    if (event.matches) {
+      document.body.classList.remove("reveals-on");
+      revealAll();
+    }
+  });
 }
 
 function initForm() {

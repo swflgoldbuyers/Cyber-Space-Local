@@ -1,0 +1,620 @@
+/* Final precision pass — loaded last so it wins the cascade. */
+
+:root {
+  --accent-ink: #021018;
+  --max: 1200px;
+}
+
+/* ---------- Reveals: never hide content unless JS opted in ---------- */
+
+body.js-ready .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+body.js-ready.reveals-on .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+body.js-ready.reveals-on .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.js-ready .reveal,
+  body.js-ready.reveals-on .reveal,
+  body.js-ready.reveals-on .reveal:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Buttons / contrast ---------- */
+
+.btn {
+  font-weight: 650;
+}
+
+.btn-primary {
+  background: #4dabff;
+  color: #021018;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: #6bbcff;
+  color: #021018;
+}
+
+.btn-primary:active {
+  background: #2b8aee;
+  color: #021018;
+}
+
+.recommend {
+  background: #4dabff;
+  color: #021018;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+}
+
+.mini-cta,
+.pill-blue {
+  color: #021018;
+  font-weight: 700;
+}
+
+.btn[aria-disabled="true"] {
+  opacity: 1;
+  color: var(--text-3);
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--line);
+  box-shadow: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+.btn[aria-disabled="true"]:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--line);
+}
+
+/* ---------- Header ---------- */
+
+.nav {
+  width: min(var(--max), calc(100% - 48px));
+}
+
+.site-header {
+  height: 72px;
+}
+
+.site-header.is-scrolled {
+  height: 62px;
+  background: rgba(5, 7, 10, 0.88);
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+}
+
+.brand-wordmark {
+  font-size: 1.06rem;
+}
+
+/* ---------- Hero composition ---------- */
+
+.env-hero {
+  padding: 12px 0 28px;
+  background:
+    radial-gradient(ellipse 48% 46% at 76% 48%, rgba(59, 158, 255, 0.16), transparent 62%),
+    var(--env-black);
+}
+
+.hero-inner {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 20px 32px;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 34rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.85rem, 6vw, 4.85rem);
+  max-width: 9.4ch;
+  line-height: 0.98;
+}
+
+.hero-copy {
+  margin-top: 14px;
+  font-size: 1.16rem;
+  max-width: 34ch;
+}
+
+.hero-actions {
+  margin-top: 20px;
+}
+
+.hero-stage {
+  min-height: 0;
+  padding: 22px 20px 28px 12px;
+}
+
+.hero-stage .browser-front {
+  position: relative;
+  z-index: 1;
+}
+
+.float-card {
+  width: min(188px, 34%);
+  padding: 9px 11px;
+  opacity: 0.9;
+  background: rgba(10, 13, 18, 0.88);
+  z-index: 2;
+}
+
+.float-search {
+  left: 0;
+  top: 4px;
+}
+
+.float-search .gs-result p {
+  display: none;
+}
+
+.float-ai {
+  right: 4px;
+  bottom: 6px;
+  width: min(196px, 36%);
+}
+
+.float-ai .ai-note {
+  display: none;
+}
+
+.hero-visual::after {
+  bottom: 12%;
+  height: 64px;
+  opacity: 0.85;
+}
+
+.hero-meta {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 24px;
+  margin-top: 4px;
+  padding-top: 16px;
+  text-align: center;
+  justify-items: center;
+}
+
+.hero-meta p {
+  max-width: 26ch;
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.hero-meta strong {
+  font-size: 1rem;
+}
+
+/* ---------- Section rhythm + blended environments ---------- */
+
+#value.env-value {
+  padding: 36px 0 32px;
+  background:
+    linear-gradient(180deg, #05070a 0%, transparent 18%),
+    radial-gradient(ellipse 70% 70% at 88% 30%, rgba(59, 158, 255, 0.08), transparent 55%),
+    #08111a;
+}
+
+#services.env-services {
+  padding: 36px 0 32px;
+  background:
+    linear-gradient(180deg, #08111a 0%, transparent 16%),
+    var(--env-black);
+}
+
+#work.env-work {
+  padding: 36px 0 28px;
+  background:
+    linear-gradient(180deg, #05070a 0%, transparent 14%),
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(59, 158, 255, 0.09), transparent 55%),
+    #08111a;
+}
+
+#why.env-why {
+  padding: 36px 0 32px;
+  background:
+    linear-gradient(180deg, #08111a 0%, transparent 18%),
+    var(--env-black);
+}
+
+#how.env-how {
+  padding: 32px 0 28px;
+  background:
+    linear-gradient(180deg, #05070a 0%, transparent 16%),
+    linear-gradient(180deg, transparent 0%, rgba(59, 158, 255, 0.045) 50%, transparent 100%),
+    #0b1520;
+}
+
+#pricing.env-pricing {
+  padding: 32px 0 28px;
+  background:
+    linear-gradient(180deg, #0b1520 0%, transparent 16%),
+    radial-gradient(ellipse 42% 70% at 74% 46%, rgba(59, 158, 255, 0.12), transparent 58%),
+    #0c1824;
+}
+
+.preview.env-preview {
+  padding: 28px 0 36px;
+  background:
+    linear-gradient(180deg, #0c1824 0%, transparent 14%),
+    radial-gradient(ellipse 60% 70% at 16% 30%, rgba(59, 158, 255, 0.12), transparent 56%),
+    #08111a;
+}
+
+.section#faq.env-faq {
+  padding: 28px 0 32px;
+  background:
+    linear-gradient(180deg, #08111a 0%, transparent 18%),
+    var(--env-black);
+}
+
+.final-cta.env-final {
+  padding: 0 0 44px;
+}
+
+.section::after,
+.preview::after,
+.final-cta::after {
+  opacity: 0.38;
+  background-size: 88px 88px;
+}
+
+.section-head {
+  margin-bottom: 20px;
+}
+
+.lede {
+  margin-top: 12px;
+}
+
+/* ---------- Value ---------- */
+
+.value-split {
+  gap: 28px;
+}
+
+.value-copy h2 {
+  font-size: clamp(2.35rem, 4.6vw, 3.55rem);
+}
+
+.value-points {
+  margin-top: 18px;
+  gap: 12px;
+}
+
+.presence-browser .site-landscape {
+  min-height: 340px;
+}
+
+.presence-float {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: auto;
+  bottom: 14px;
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.presence-float .ui-card {
+  padding: 10px 12px;
+}
+
+.presence-float .gs-bar {
+  font-size: 11px;
+}
+
+/* ---------- Services ---------- */
+
+.service-feature {
+  padding: 24px 24px 22px;
+  margin-bottom: 12px;
+}
+
+.service-feature h3 {
+  font-size: 1.85rem;
+}
+
+.service-feature .theme-yours {
+  min-height: 280px;
+}
+
+.eco-row {
+  margin-bottom: 12px;
+}
+
+.eco-chip {
+  padding: 14px 12px;
+}
+
+.service-side {
+  padding: 18px 18px 16px;
+  min-height: 100%;
+}
+
+/* ---------- Portfolio ---------- */
+
+.showcase {
+  padding: 8px 0 18px;
+  gap: 24px;
+}
+
+.site-pro,
+.site-landscape,
+.site-plumbing {
+  min-height: 360px;
+}
+
+.portfolio-actions {
+  padding-top: 14px;
+}
+
+.coming-soon {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Why us ---------- */
+
+.philosophy {
+  gap: 32px;
+}
+
+.philosophy h2 {
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+}
+
+.philosophy-list article {
+  padding: 12px 0;
+}
+
+.contrast {
+  margin-top: 18px;
+}
+
+/* ---------- How it works ---------- */
+
+.process-intro {
+  margin-bottom: 12px;
+}
+
+.process-track {
+  margin-top: 4px;
+  gap: 12px;
+}
+
+.process-track::before {
+  top: 1.8rem;
+  height: 1px;
+}
+
+.process-node .process-num {
+  font-size: 3.2rem;
+  margin-bottom: 8px;
+}
+
+.process-node .process-num::before {
+  background: #0b1520;
+}
+
+.process-viz {
+  margin-top: 12px;
+}
+
+.process-site {
+  min-height: 104px;
+}
+
+.flow-label {
+  margin-top: 10px;
+}
+
+/* ---------- Pricing ---------- */
+
+.price-card {
+  padding: 26px 24px 22px;
+}
+
+.price-card.featured {
+  padding-top: 26px;
+}
+
+.price-card .btn {
+  min-height: 50px;
+  font-weight: 700;
+}
+
+.pricing-footnote {
+  margin-top: 14px;
+}
+
+/* ---------- Form ---------- */
+
+.preview-copy,
+.preview-form-stage {
+  padding: 28px 28px;
+}
+
+.form-grid {
+  gap: 14px 16px;
+}
+
+.field label {
+  font-size: 0.86rem;
+  color: var(--text-2);
+}
+
+.form-legal {
+  font-size: 0.8rem;
+}
+
+/* ---------- FAQ / Final / Footer ---------- */
+
+.faq-item summary {
+  padding: 14px 2px;
+}
+
+.faq-item p {
+  padding: 0 2px 14px;
+}
+
+.final-panel {
+  padding: 56px 32px;
+}
+
+.search-chip {
+  opacity: 0.4;
+}
+
+.site-footer {
+  padding: 24px 0 18px;
+}
+
+.footer-grid {
+  padding-bottom: 16px;
+  gap: 24px;
+}
+
+.footer-logo {
+  width: min(148px, 52%);
+}
+
+/* ---------- Large screens: use the viewport ---------- */
+
+@media (min-width: 1440px) {
+  :root {
+    --max: 1220px;
+  }
+}
+
+/* ---------- Tablet / mobile composition ---------- */
+
+@media (max-width: 1024px) {
+  .float-card {
+    width: min(168px, 32%);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero-meta {
+    grid-template-columns: 1fr;
+    text-align: left;
+    justify-items: start;
+  }
+
+  .hero-meta p {
+    text-align: left;
+    max-width: 42ch;
+  }
+
+  .hero h1 {
+    max-width: none;
+  }
+
+  .hero-content {
+    max-width: none;
+  }
+
+  .hero-stage {
+    padding: 0;
+  }
+
+  .presence-float {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin-top: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  .env-hero {
+    padding: 10px 0 22px;
+  }
+
+  #value.env-value,
+  #services.env-services,
+  #work.env-work,
+  #why.env-why,
+  #how.env-how,
+  #pricing.env-pricing {
+    padding: 32px 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .nav {
+    width: min(var(--max), calc(100% - 32px));
+  }
+
+  .hero-actions .btn {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.25;
+    padding: 12px 16px;
+  }
+
+  .hero-meta {
+    gap: 12px;
+  }
+
+  .presence-browser .site-landscape,
+  .site-pro,
+  .site-landscape,
+  .site-plumbing {
+    min-height: 240px;
+  }
+
+  .service-feature,
+  .preview-copy,
+  .preview-form-stage,
+  .final-panel,
+  .price-card,
+  .price-card.featured {
+    padding: 20px 16px;
+  }
+
+  .search-chip {
+    display: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .eco-chip b {
+    font-size: 0.98rem;
+  }
+
+  .philosophy h2 {
+    font-size: clamp(2.15rem, 12vw, 2.8rem);
+  }
+}
