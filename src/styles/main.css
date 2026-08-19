@@ -1,6 +1,4 @@
 @import "./fonts.css";
-@import "./v2.css";
-@import "./v3.css";
 
 :root {
   --bg: #07080b;
@@ -15,20 +13,24 @@
   --text-3: #8b929e;
   --text-4: #6a7180;
   --accent: #3b9eff;
-  --accent-hover: #62b2ff;
-  --accent-pressed: #2b8aee;
+  --accent-cta: #1a78e8;
+  --accent-hover: #2b86f0;
+  --accent-pressed: #1568cc;
   --accent-dim: rgba(59, 158, 255, 0.14);
-  --accent-glow: rgba(59, 158, 255, 0.28);
-  --accent-ink: #041018;
+  --accent-glow: rgba(59, 158, 255, 0.22);
+  --accent-ink: #021018;
+  --cta-text: #ffffff;
   --chrome: #c8ced8;
   --danger: #f07178;
   --success: #5dcea3;
   --radius: 18px;
+  --radius-lg: 20px;
+  --radius-md: 16px;
   --radius-sm: 12px;
   --radius-xs: 8px;
-  --nav-h: 80px;
+  --nav-h: 76px;
   --nav-h-compact: 64px;
-  --max: 1180px;
+  --max: 1200px;
   --header: "Instrument Sans", "Segoe UI", sans-serif;
   --body: "Inter", "Segoe UI", sans-serif;
   --shadow-card: 0 28px 80px rgba(0, 0, 0, 0.42);
@@ -152,7 +154,7 @@ ul {
 }
 
 .section {
-  padding: 140px 0;
+  padding: 72px 0;
   position: relative;
 }
 
@@ -199,14 +201,19 @@ ul {
 }
 
 body.js-ready .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-}
-
-body.js-ready .reveal.is-visible {
   opacity: 1;
   transform: none;
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+body.js-ready.reveals-on .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+body.js-ready.reveals-on .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
 }
 
 /* ---------- Buttons ---------- */
@@ -228,19 +235,22 @@ body.js-ready .reveal.is-visible {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: var(--accent-ink);
-  box-shadow: 0 0 0 0 transparent, 0 8px 24px rgba(59, 158, 255, 0.18);
+  background: var(--accent-cta);
+  color: var(--cta-text);
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(26, 120, 232, 0.22);
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
-  box-shadow: 0 0 0 4px var(--accent-dim), 0 10px 28px rgba(59, 158, 255, 0.28);
+  color: var(--cta-text);
+  box-shadow: 0 0 0 4px var(--accent-dim), 0 10px 28px rgba(26, 120, 232, 0.28);
   transform: translateY(-1px);
 }
 
 .btn-primary:active {
   background: var(--accent-pressed);
+  color: var(--cta-text);
   transform: translateY(1px);
 }
 
@@ -1487,7 +1497,9 @@ body.menu-open {
     transition: none !important;
   }
 
-  body.js-ready .reveal {
+  body.js-ready .reveal,
+  body.js-ready.reveals-on .reveal,
+  body.js-ready.reveals-on .reveal:not(.is-visible) {
     opacity: 1;
     transform: none;
   }
