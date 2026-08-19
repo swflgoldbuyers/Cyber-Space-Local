@@ -1,0 +1,17 @@
+{
+  "name": "CyberSpace Local",
+  "short_name": "CyberSpace Local",
+  "description": "Professional websites and digital presence for local businesses in Southwest Florida.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07080B",
+  "theme_color": "#07080B",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

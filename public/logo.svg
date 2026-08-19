@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">CyberSpace Local</title>
+  <defs>
+    <linearGradient id="cslChrome" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4F6F8"/>
+      <stop offset="0.28" stop-color="#B4BCC8"/>
+      <stop offset="0.5" stop-color="#EDEFF3"/>
+      <stop offset="0.74" stop-color="#8E98A8"/>
+      <stop offset="1" stop-color="#D5DAE2"/>
+    </linearGradient>
+    <linearGradient id="cslBlue" x1="44" y1="8" x2="58" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8FCBFF"/>
+      <stop offset="1" stop-color="#2F8FFF"/>
+    </linearGradient>
+    <filter id="cslGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Local-node mark: chrome C-ring with an electric-blue location point -->
+  <circle cx="32" cy="32" r="20.5" stroke="url(#cslChrome)" stroke-width="4.25" stroke-linecap="round" stroke-dasharray="102 27" transform="rotate(-38 32 32)"/>
+  <circle cx="47.5" cy="17.5" r="5" fill="url(#cslBlue)" filter="url(#cslGlow)"/>
+</svg>
