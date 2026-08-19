@@ -1,5 +1,6 @@
 import "./styles/main.css";
 import "./styles/site.css";
+import "./styles/mobile.css";
 import { site } from "./data/site.js";
 
 document.body.classList.add("js-ready");
