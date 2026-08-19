@@ -1,4 +1,5 @@
-/* V4: final art-direction pass — environments, rhythm, hierarchy */
+/* V4: final art-direction pass — environments, rhythm, hierarchy
+   Loaded after main.css from src/main.js so these rules win the cascade. */
 
 :root {
   --env-black: #05070a;
@@ -50,32 +51,32 @@ body {
 /* ---------- Environments (subtle, not striped) ---------- */
 
 .env-hero {
-  padding: 18px 0 36px;
+  padding: 24px 0 44px;
   background:
-    radial-gradient(ellipse 58% 52% at 78% 46%, rgba(59, 158, 255, 0.16), transparent 58%),
-    radial-gradient(ellipse 40% 30% at 12% 8%, rgba(59, 158, 255, 0.05), transparent 55%),
+    radial-gradient(ellipse 58% 52% at 78% 46%, rgba(59, 158, 255, 0.22), transparent 58%),
+    radial-gradient(ellipse 40% 30% at 12% 8%, rgba(59, 158, 255, 0.07), transparent 55%),
     var(--env-black);
 }
 
 #value.env-value {
   padding: 48px 0 44px;
   background:
-    radial-gradient(ellipse 70% 80% at 92% 18%, rgba(59, 158, 255, 0.08), transparent 52%),
-    linear-gradient(180deg, #08111a 0%, #0b1520 100%);
+    radial-gradient(ellipse 70% 80% at 92% 18%, rgba(59, 158, 255, 0.12), transparent 52%),
+    #0b1520;
 }
 
 #services.env-services {
   padding: 48px 0 44px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028), transparent 24%),
     var(--env-black);
 }
 
 #work.env-work {
   padding: 48px 0 36px;
   background:
-    radial-gradient(ellipse 90% 50% at 50% -8%, rgba(59, 158, 255, 0.09), transparent 52%),
-    var(--env-deep);
+    radial-gradient(ellipse 90% 50% at 50% -8%, rgba(59, 158, 255, 0.14), transparent 52%),
+    #08111a;
 }
 
 #why.env-why {
@@ -88,22 +89,22 @@ body {
 #how.env-how {
   padding: 44px 0 40px;
   background:
-    linear-gradient(180deg, transparent 0%, rgba(59, 158, 255, 0.04) 46%, transparent 100%),
-    var(--env-navy);
+    linear-gradient(180deg, transparent 0%, rgba(59, 158, 255, 0.07) 46%, transparent 100%),
+    #0b1520;
 }
 
 #pricing.env-pricing {
   padding: 44px 0 36px;
   background:
-    radial-gradient(ellipse 46% 70% at 72% 42%, rgba(59, 158, 255, 0.12), transparent 58%),
-    var(--env-lift);
+    radial-gradient(ellipse 46% 70% at 72% 42%, rgba(59, 158, 255, 0.18), transparent 58%),
+    #0d1a28;
 }
 
 .preview.env-preview {
   padding: 36px 0 48px;
   background:
-    radial-gradient(ellipse 64% 80% at 18% 28%, rgba(59, 158, 255, 0.14), transparent 54%),
-    var(--env-deep);
+    radial-gradient(ellipse 64% 80% at 18% 28%, rgba(59, 158, 255, 0.18), transparent 54%),
+    #08111a;
 }
 
 .section#faq.env-faq {
@@ -217,7 +218,20 @@ body {
 
 .hero-inner {
   grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-  gap: 36px;
+  gap: 28px 36px;
+  align-items: center;
+}
+
+.hero-meta {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  padding-top: 18px;
+  gap: 14px 32px;
+}
+
+.hero-meta p {
+  max-width: 28ch;
+  font-size: 0.9rem;
 }
 
 .hero-actions {
@@ -684,7 +698,7 @@ body {
   right: -8%;
   bottom: -18%;
   width: 58%;
-  opacity: 0.22;
+  opacity: 0.34;
   transform: rotate(7deg);
   pointer-events: none;
   filter: saturate(0.85);
@@ -714,11 +728,22 @@ body {
 /* ---------- FAQ ---------- */
 
 .env-faq .wrap {
-  width: min(1040px, calc(100% - 48px));
+  width: min(var(--max), calc(100% - 48px));
 }
 
 .faq-list {
   max-width: none;
+}
+
+.faq-item {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item[open] {
+  border-color: var(--line);
 }
 
 .section#faq .section-head {

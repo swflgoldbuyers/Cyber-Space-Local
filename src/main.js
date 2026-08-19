@@ -1,4 +1,5 @@
 import "./styles/main.css";
+import "./styles/v4.css";
 import { site } from "./data/site.js";
 
 document.body.classList.add("js-ready");
