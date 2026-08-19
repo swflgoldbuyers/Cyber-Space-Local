@@ -40,24 +40,24 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 .btn-primary {
-  background: #4dabff;
-  color: #021018;
+  background: #1a78e8;
+  color: #ffffff;
   font-weight: 700;
 }
 
 .btn-primary:hover {
-  background: #6bbcff;
-  color: #021018;
+  background: #2b86f0;
+  color: #ffffff;
 }
 
 .btn-primary:active {
-  background: #2b8aee;
-  color: #021018;
+  background: #1568cc;
+  color: #ffffff;
 }
 
 .recommend {
-  background: #4dabff;
-  color: #021018;
+  background: #1a78e8;
+  color: #ffffff;
   font-weight: 800;
   letter-spacing: 0.1em;
   padding: 6px 12px;
@@ -113,7 +113,7 @@ body.js-ready.reveals-on .reveal.is-visible {
 /* ---------- Hero composition ---------- */
 
 .env-hero {
-  padding: 12px 0 28px;
+  padding: 28px 0 52px;
   background:
     radial-gradient(ellipse 48% 46% at 76% 48%, rgba(59, 158, 255, 0.16), transparent 62%),
     var(--env-black);
@@ -121,7 +121,7 @@ body.js-ready.reveals-on .reveal.is-visible {
 
 .hero-inner {
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 20px 32px;
+  gap: 28px 40px;
   align-items: center;
 }
 
@@ -133,24 +133,38 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 .hero h1 {
-  font-size: clamp(2.85rem, 6vw, 4.85rem);
-  max-width: 9.4ch;
-  line-height: 0.98;
+  font-size: clamp(2.9rem, 6.2vw, 5rem);
+  max-width: 8ch;
+  line-height: 0.96;
 }
 
 .hero-copy {
-  margin-top: 14px;
-  font-size: 1.16rem;
-  max-width: 34ch;
+  margin-top: 18px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 36ch;
 }
 
 .hero-actions {
-  margin-top: 20px;
+  margin-top: 24px;
+  align-items: center;
+}
+
+.hero-actions .btn {
+  min-height: 50px;
+}
+
+.hero {
+  overflow-x: clip;
+}
+
+.hero-visual {
+  overflow: visible;
 }
 
 .hero-stage {
   min-height: 0;
-  padding: 22px 20px 28px 12px;
+  padding: 28px 168px 40px 156px;
 }
 
 .hero-stage .browser-front {
@@ -159,16 +173,16 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 .float-card {
-  width: min(188px, 34%);
+  width: 152px;
   padding: 9px 11px;
-  opacity: 0.9;
-  background: rgba(10, 13, 18, 0.88);
+  opacity: 0.92;
+  background: rgba(10, 13, 18, 0.9);
   z-index: 2;
 }
 
 .float-search {
-  left: 0;
-  top: 4px;
+  left: 8px;
+  top: 18px;
 }
 
 .float-search .gs-result p {
@@ -176,19 +190,17 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 .float-ai {
-  right: 4px;
-  bottom: 6px;
-  width: min(196px, 36%);
-}
-
-.float-ai .ai-note {
-  display: none;
+  right: 8px;
+  bottom: 20px;
+  width: 158px;
 }
 
 .hero-visual::after {
-  bottom: 12%;
-  height: 64px;
-  opacity: 0.85;
+  left: 22%;
+  right: 22%;
+  bottom: 18%;
+  height: 70px;
+  opacity: 0.8;
 }
 
 .hero-meta {
@@ -196,8 +208,8 @@ body.js-ready.reveals-on .reveal.is-visible {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px 24px;
-  margin-top: 4px;
-  padding-top: 16px;
+  margin-top: 8px;
+  padding-top: 22px;
   text-align: center;
   justify-items: center;
 }
@@ -205,18 +217,19 @@ body.js-ready.reveals-on .reveal.is-visible {
 .hero-meta p {
   max-width: 26ch;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
   text-align: center;
 }
 
 .hero-meta strong {
-  font-size: 1rem;
+  font-size: 1.02rem;
 }
 
 /* ---------- Section rhythm + blended environments ---------- */
 
 #value.env-value {
-  padding: 36px 0 32px;
+  padding: 72px 0 64px;
   background:
     linear-gradient(180deg, #05070a 0%, transparent 18%),
     radial-gradient(ellipse 70% 70% at 88% 30%, rgba(59, 158, 255, 0.08), transparent 55%),
@@ -224,14 +237,14 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 #services.env-services {
-  padding: 36px 0 32px;
+  padding: 72px 0 64px;
   background:
     linear-gradient(180deg, #08111a 0%, transparent 16%),
     var(--env-black);
 }
 
 #work.env-work {
-  padding: 36px 0 28px;
+  padding: 72px 0 56px;
   background:
     linear-gradient(180deg, #05070a 0%, transparent 14%),
     radial-gradient(ellipse 80% 40% at 50% 0%, rgba(59, 158, 255, 0.09), transparent 55%),
@@ -239,14 +252,14 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 #why.env-why {
-  padding: 36px 0 32px;
+  padding: 72px 0 64px;
   background:
     linear-gradient(180deg, #08111a 0%, transparent 18%),
     var(--env-black);
 }
 
 #how.env-how {
-  padding: 32px 0 28px;
+  padding: 68px 0 60px;
   background:
     linear-gradient(180deg, #05070a 0%, transparent 16%),
     linear-gradient(180deg, transparent 0%, rgba(59, 158, 255, 0.045) 50%, transparent 100%),
@@ -254,7 +267,7 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 #pricing.env-pricing {
-  padding: 32px 0 28px;
+  padding: 68px 0 56px;
   background:
     linear-gradient(180deg, #0b1520 0%, transparent 16%),
     radial-gradient(ellipse 42% 70% at 74% 46%, rgba(59, 158, 255, 0.12), transparent 58%),
@@ -262,7 +275,7 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 .preview.env-preview {
-  padding: 28px 0 36px;
+  padding: 56px 0 64px;
   background:
     linear-gradient(180deg, #0c1824 0%, transparent 14%),
     radial-gradient(ellipse 60% 70% at 16% 30%, rgba(59, 158, 255, 0.12), transparent 56%),
@@ -270,14 +283,14 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 .section#faq.env-faq {
-  padding: 28px 0 32px;
+  padding: 56px 0 60px;
   background:
     linear-gradient(180deg, #08111a 0%, transparent 18%),
     var(--env-black);
 }
 
 .final-cta.env-final {
-  padding: 0 0 44px;
+  padding: 0 0 72px;
 }
 
 .section::after,
@@ -288,95 +301,136 @@ body.js-ready.reveals-on .reveal.is-visible {
 }
 
 .section-head {
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 
 .lede {
-  margin-top: 12px;
+  margin-top: 16px;
+  font-size: 1.16rem;
+  line-height: 1.7;
 }
 
 /* ---------- Value ---------- */
 
 .value-split {
-  gap: 28px;
+  gap: 48px;
+  align-items: center;
 }
 
 .value-copy h2 {
-  font-size: clamp(2.35rem, 4.6vw, 3.55rem);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
 }
 
 .value-points {
-  margin-top: 18px;
-  gap: 12px;
+  margin-top: 24px;
+  gap: 16px;
+}
+
+.value-points span {
+  font-size: 1.02rem;
+  line-height: 1.6;
 }
 
 .presence-browser .site-landscape {
-  min-height: 340px;
+  min-height: 400px;
 }
 
 .presence-float {
-  position: absolute;
-  left: 16px;
-  right: 16px;
+  position: relative;
+  left: auto;
+  right: auto;
   top: auto;
-  bottom: 14px;
+  bottom: auto;
   width: auto;
+  margin-top: 12px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  gap: 10px;
 }
 
 .presence-float .ui-card {
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
 
 .presence-float .gs-bar {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 /* ---------- Services ---------- */
 
 .service-feature {
-  padding: 24px 24px 22px;
-  margin-bottom: 12px;
+  padding: 32px 32px 28px;
+  margin-bottom: 20px;
 }
 
 .service-feature h3 {
-  font-size: 1.85rem;
+  font-size: 1.95rem;
+}
+
+.service-feature p {
+  font-size: 1.05rem;
+  line-height: 1.65;
 }
 
 .service-feature .theme-yours {
-  min-height: 280px;
+  min-height: 300px;
 }
 
 .eco-row {
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
 .eco-chip {
-  padding: 14px 12px;
+  padding: 18px 14px;
+}
+
+.eco-chip b {
+  font-size: 1.08rem;
+}
+
+.eco-chip span {
+  font-size: 0.88rem;
 }
 
 .service-side {
-  padding: 18px 18px 16px;
+  padding: 22px 20px 20px;
   min-height: 100%;
+}
+
+.service-side h3 {
+  font-size: 1.22rem;
+}
+
+.service-side p {
+  font-size: 1.02rem;
+  line-height: 1.6;
 }
 
 /* ---------- Portfolio ---------- */
 
 .showcase {
-  padding: 8px 0 18px;
-  gap: 24px;
+  padding: 18px 0 36px;
+  gap: 36px;
+  align-items: center;
+}
+
+.showcase-copy h3 {
+  font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+}
+
+.showcase-copy p {
+  font-size: 1.05rem;
+  line-height: 1.65;
 }
 
 .site-pro,
 .site-landscape,
 .site-plumbing {
-  min-height: 360px;
+  min-height: 380px;
 }
 
 .portfolio-actions {
-  padding-top: 14px;
+  padding-top: 18px;
 }
 
 .coming-soon {
@@ -387,66 +441,76 @@ body.js-ready.reveals-on .reveal.is-visible {
 /* ---------- Why us ---------- */
 
 .philosophy {
-  gap: 32px;
+  gap: 56px;
 }
 
 .philosophy h2 {
-  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-size: clamp(3rem, 6.4vw, 5rem);
 }
 
 .philosophy-list article {
-  padding: 12px 0;
+  padding: 18px 0;
+}
+
+.philosophy-list p {
+  font-size: 1.02rem;
+  line-height: 1.65;
 }
 
 .contrast {
-  margin-top: 18px;
+  margin-top: 24px;
 }
 
 /* ---------- How it works ---------- */
 
 .process-intro {
-  margin-bottom: 12px;
+  margin-bottom: 28px;
 }
 
 .process-track {
-  margin-top: 4px;
-  gap: 12px;
+  margin-top: 8px;
+  gap: 20px;
 }
 
 .process-track::before {
-  top: 1.8rem;
+  top: 1.85rem;
   height: 1px;
 }
 
 .process-node .process-num {
-  font-size: 3.2rem;
-  margin-bottom: 8px;
+  font-size: 3.5rem;
+  margin-bottom: 12px;
 }
 
 .process-node .process-num::before {
   background: #0b1520;
 }
 
+.process-node h3 {
+  font-size: 1.4rem;
+}
+
+.process-node > p {
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
 .process-viz {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .process-site {
-  min-height: 104px;
-}
-
-.flow-label {
-  margin-top: 10px;
+  min-height: 132px;
 }
 
 /* ---------- Pricing ---------- */
 
 .price-card {
-  padding: 26px 24px 22px;
+  padding: 32px 28px 26px;
 }
 
 .price-card.featured {
-  padding-top: 26px;
+  padding-top: 32px;
 }
 
 .price-card .btn {
@@ -454,59 +518,76 @@ body.js-ready.reveals-on .reveal.is-visible {
   font-weight: 700;
 }
 
+.feature-list li {
+  font-size: 1rem;
+}
+
 .pricing-footnote {
-  margin-top: 14px;
+  margin-top: 20px;
 }
 
 /* ---------- Form ---------- */
 
 .preview-copy,
 .preview-form-stage {
-  padding: 28px 28px;
+  padding: 40px 36px;
+}
+
+.preview-copy h2 {
+  font-size: clamp(2.15rem, 3.4vw, 3.05rem);
 }
 
 .form-grid {
-  gap: 14px 16px;
+  gap: 16px 18px;
 }
 
 .field label {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   color: var(--text-2);
 }
 
 .form-legal {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
 }
 
 /* ---------- FAQ / Final / Footer ---------- */
 
 .faq-item summary {
-  padding: 14px 2px;
+  padding: 18px 4px;
+  font-size: 1.18rem;
 }
 
 .faq-item p {
-  padding: 0 2px 14px;
+  padding: 0 4px 18px;
+  font-size: 1.04rem;
 }
 
 .final-panel {
-  padding: 56px 32px;
+  padding: 72px 40px;
+  text-align: center;
+}
+
+.final-panel h2,
+.final-panel .lede,
+.final-panel .btn {
+  margin-inline: auto;
 }
 
 .search-chip {
-  opacity: 0.4;
+  opacity: 0.38;
 }
 
 .site-footer {
-  padding: 24px 0 18px;
+  padding: 36px 0 24px;
 }
 
 .footer-grid {
-  padding-bottom: 16px;
-  gap: 24px;
+  padding-bottom: 22px;
+  gap: 32px;
 }
 
 .footer-logo {
-  width: min(148px, 52%);
+  width: min(160px, 54%);
 }
 
 /* ---------- Large screens: use the viewport ---------- */
@@ -519,9 +600,24 @@ body.js-ready.reveals-on .reveal.is-visible {
 
 /* ---------- Tablet / mobile composition ---------- */
 
+@media (max-width: 1200px) {
+  .hero-stage {
+    padding: 24px 132px 36px 124px;
+  }
+
+  .float-card,
+  .float-ai {
+    width: 128px;
+  }
+}
+
 @media (max-width: 1024px) {
+  .hero-stage {
+    padding: 16px 20px 24px;
+  }
+
   .float-card {
-    width: min(168px, 32%);
+    width: min(150px, 30%);
   }
 }
 
@@ -550,16 +646,11 @@ body.js-ready.reveals-on .reveal.is-visible {
   }
 
   .presence-float {
-    position: relative;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    margin-top: 10px;
     grid-template-columns: 1fr;
   }
 
   .env-hero {
-    padding: 10px 0 22px;
+    padding: 20px 0 36px;
   }
 
   #value.env-value,
@@ -567,8 +658,14 @@ body.js-ready.reveals-on .reveal.is-visible {
   #work.env-work,
   #why.env-why,
   #how.env-how,
-  #pricing.env-pricing {
-    padding: 32px 0;
+  #pricing.env-pricing,
+  .preview.env-preview,
+  .section#faq.env-faq {
+    padding: 52px 0;
+  }
+
+  .final-cta.env-final {
+    padding: 0 0 52px;
   }
 }
 
@@ -588,11 +685,15 @@ body.js-ready.reveals-on .reveal.is-visible {
     gap: 12px;
   }
 
+  .env-hero {
+    padding: 16px 0 32px;
+  }
+
   .presence-browser .site-landscape,
   .site-pro,
   .site-landscape,
   .site-plumbing {
-    min-height: 240px;
+    min-height: 260px;
   }
 
   .service-feature,
@@ -601,7 +702,7 @@ body.js-ready.reveals-on .reveal.is-visible {
   .final-panel,
   .price-card,
   .price-card.featured {
-    padding: 20px 16px;
+    padding: 24px 18px;
   }
 
   .search-chip {
